@@ -1,17 +1,24 @@
 var dayEl = $('#currentDay');
-var containerEl = $('#container');
+var btnEl = $('.btn');
+var formEl = $('.form-input');
 
 dayEl.text(moment().format('MMMM Do YYYY')); //date at header
 
-//hourly schedule for today
+// create function to handle form submission
+function handleFormSubmit(event) {
+  event.preventDefault();
 
-var schedule = [[7, 8, 9, 10, 11, 12], [13, 14, 15, 16, 17], [18, 19, 20, 21, 22], [23, 24, 1, 2, 3, 4, 5, 6]];
+  // select form element by its `name` attribute and get its value
+  var hourItem = $('input[name="hourly-input"]').val();
 
+  // if there's nothing in the form entered, don't print to the page
+  if (!hourItem) {
+    console.log('No event filled out in form!');
+    return;
+  }
 
+  // save to local storage
+  localStorage.setItem('myHour', hourItem);
+}
 
-containerEl.append();
-
-
-// var schedule = $('<table />');
-// schedule[0].border = "12am";
-// containerEl.append(schedule);
+btnEl.on('click', handleFormSubmit);
