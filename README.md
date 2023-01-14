@@ -12,3 +12,4 @@ To use the work-day Scheduler, simply type the event in the timeslot space, whic
 ### Link
 
 Link to the completed webpage:
+https://eatmorevegetabl.github.io/workDayScheduler/
